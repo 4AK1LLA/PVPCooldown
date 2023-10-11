@@ -5,6 +5,7 @@ import cn.nukkit.plugin.PluginBase;
 public class PVPCooldown extends PluginBase {
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         CooldownManager manager = new CooldownManager(this);
         getServer().getPluginManager().registerEvents(new MainListener(manager), this);
     }

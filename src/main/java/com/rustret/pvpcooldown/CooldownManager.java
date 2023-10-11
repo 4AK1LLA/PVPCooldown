@@ -2,22 +2,29 @@ package com.rustret.pvpcooldown;
 
 import cn.nukkit.Player;
 import cn.nukkit.plugin.Plugin;
+import cn.nukkit.utils.Config;
 
 import java.util.HashMap;
 
 public class CooldownManager {
     public final int TICKS = 20;
-    public final int TOTAL_SECONDS = 20;
-    public final float BAR_INDEX = 100.0f / TOTAL_SECONDS;
-    public final String TEXT_BAR = "PVP mode ends in %d seconds";
-    public final String TEXT_ENTERED = "You entered PVP. Don't leave the server or you will die";
-    public final String TEXT_QUIT = "You quit PVP";
-    public final String TEXT_ON_COMMAND = "You can not use commands during PVP";
+    public final int TOTAL_SECONDS;
+    public final float BAR_INDEX;
+    public final String TEXT_BAR, TEXT_ENTERED, TEXT_QUIT, TEXT_ON_COMMAND;
     private final Plugin plugin;
     private final HashMap<Long, PVPEntry> fightingPlayers = new HashMap<>();
 
     public CooldownManager(Plugin plugin) {
         this.plugin = plugin;
+
+        Config cfg = plugin.getConfig();
+        TOTAL_SECONDS = cfg.getInt("total-seconds");
+        TEXT_BAR = cfg.getString("text-bar");
+        TEXT_ENTERED = cfg.getString("text-entered");
+        TEXT_QUIT = cfg.getString("text-quit");
+        TEXT_ON_COMMAND = cfg.getString("text-on-command");
+
+        BAR_INDEX = 100.0f / TOTAL_SECONDS;
     }
 
     public void start(Player player) {
