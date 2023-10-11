@@ -2,3 +2,8 @@ name: PVPCooldown
 main: com.rustret.pvpcooldown.PVPCooldown
 version: "1.0.0"
 api: ["1.0.0"]
+
+permissions:
+  pvpcooldown.bypass:
+    description: "Allows to bypass plugin restrictions"
+    default: false
