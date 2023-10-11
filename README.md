@@ -19,3 +19,7 @@ This plugin also includes a permission `cooldown.bypass` for bypassing its restr
 1. Download release of the plugin from the [Releases](https://github.com/4AK1LLA/PVPCooldown/releases) section.
 2. Place the downloaded JAR file into the "plugins" directory of your server.
 3. Restart your server to enable the plugin.
+
+## TODO
+
+- Add ability for certain commands to be used even during PVP mode. For instance, the `/tell` command doesn't need to be restricted.
