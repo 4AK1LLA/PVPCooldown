@@ -29,6 +29,7 @@ public class CooldownManager {
             return;
         }
 
+        player.sendMessage(TEXT_ENTERED);
         entry = new PVPEntry(player, plugin, this);
         fightingPlayers.put(playerId, entry);
         entry.startTask();
@@ -55,5 +56,13 @@ public class CooldownManager {
 
     public boolean isNotPVP(Player player) {
         return !fightingPlayers.containsKey(player.getId());
+    }
+
+    public void clear() {
+        for (PVPEntry entry : fightingPlayers.values()) {
+            entry.stopTask();
+        }
+
+        fightingPlayers.clear();
     }
 }

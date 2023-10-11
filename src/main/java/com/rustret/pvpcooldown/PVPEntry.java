@@ -29,7 +29,6 @@ public class PVPEntry {
     }
 
     public void startTask() {
-        player.sendMessage(manager.TEXT_ENTERED);
         secondsLeft = manager.TOTAL_SECONDS;
         barId = player.createBossBar(bar);
         taskId = scheduler.scheduleRepeatingTask(plugin, () -> {
