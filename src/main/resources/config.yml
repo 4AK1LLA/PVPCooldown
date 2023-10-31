@@ -2,7 +2,7 @@
 
 total-seconds: 20 # Duration of cooldown in seconds
 
-text-bar: "PVP mode ends in %d seconds"
-text-entered: "You entered PVP. Don't leave the server or you will die"
+text-bar: "PVP mode against %s for next %d seconds"
+text-entered: "You entered PVP. Do not leave the server or you will die"
 text-quit: "You quit PVP"
 text-on-command: "You can not use commands during PVP"

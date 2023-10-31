@@ -27,7 +27,7 @@ public class CooldownManager {
         BAR_INDEX = 100.0f / TOTAL_SECONDS;
     }
 
-    public void start(Player player) {
+    public void start(Player player, Player enemy) {
         long playerId = player.getId();
         PVPEntry entry = fightingPlayers.get(playerId);
 
@@ -37,7 +37,7 @@ public class CooldownManager {
         }
 
         player.sendMessage(TEXT_ENTERED);
-        entry = new PVPEntry(player, plugin, this);
+        entry = new PVPEntry(player, enemy.getName(), plugin, this);
         fightingPlayers.put(playerId, entry);
         entry.startTask();
     }

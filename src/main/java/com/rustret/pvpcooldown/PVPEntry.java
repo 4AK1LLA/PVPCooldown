@@ -16,9 +16,11 @@ public class PVPEntry {
     private final Plugin plugin;
     private final CooldownManager manager;
     private final ServerScheduler scheduler = Server.getInstance().getScheduler();
+    private final String enemy;
 
-    public PVPEntry(Player player, Plugin plugin, CooldownManager manager) {
+    public PVPEntry(Player player, String enemy, Plugin plugin, CooldownManager manager) {
         this.player = player;
+        this.enemy = enemy;
         this.plugin = plugin;
         this.manager = manager;
 
@@ -38,7 +40,7 @@ public class PVPEntry {
                 manager.remove(player);
                 return;
             }
-            bar.setText(String.format(manager.TEXT_BAR, secondsLeft));
+            bar.setText(String.format(manager.TEXT_BAR, enemy, secondsLeft));
             bar.setLength(manager.BAR_INDEX * secondsLeft);
             secondsLeft--;
         }, manager.TICKS).getTaskId();

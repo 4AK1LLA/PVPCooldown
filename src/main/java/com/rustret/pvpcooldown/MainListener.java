@@ -22,14 +22,11 @@ public class MainListener implements Listener {
             return;
         }
 
-        Player[] players = new Player[] {
-                (Player) event.getDamager(),
-                (Player) event.getEntity()
-        };
+        Player damager = (Player) event.getDamager();
+        Player victim = (Player) event.getEntity();
 
-        for (Player player: players) {
-            manager.start(player);
-        }
+        manager.start(damager, victim);
+        manager.start(victim, damager);
     }
 
     @EventHandler
